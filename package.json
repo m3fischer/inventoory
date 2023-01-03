@@ -1,0 +1,12 @@
+{
+  "type": "module",
+  "name": "inventoory",
+  "version": "1.0.0",
+  "description": "Verwaltung von großen und kleinen Dingen",
+  "main": "inventoory.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manuel Fischer",
+  "license": "MIT"
+}
