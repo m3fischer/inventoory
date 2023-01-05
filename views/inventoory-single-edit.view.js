@@ -32,7 +32,7 @@ function generateHtmlEditForm(item){
     let htmlItem = `<form action="/save" method="POST" id="edit_form">`
     for (let count =0; count < keys.length; count++){
         htmlItem += `<label for="id-input-${keys[count]}">${keys[count]}</label>
-        <input type="text" id="id-input-${keys[count]}" name="id-input-${keys[count]}" value="${value[count]}"><br><br>`
+        <input type="text" id="id-input-${keys[count]}" name="${keys[count]}" value="${value[count]}"><br><br>`
     }
     htmlItem += '<button type="submit" form="edit_form" value="Submit">Speichern</button>'
     htmlItem += '</form>'

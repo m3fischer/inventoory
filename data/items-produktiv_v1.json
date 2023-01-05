@@ -2,50 +2,36 @@
     {
         "name": "Küchentisch",
         "typ": "Tisch",
-        "Neupreis": "500 EUR",
+        "Neupreis": "200 EUR",
         "Ort": "Küche",
-        "id": "HD650"
+        "id": "W3KJV"
     },
     {
         "name": "Wohnzimmertisch",
         "typ": "Tisch",
         "Neupreis": "150 EUR",
         "Ort": "Wohnzimmer",
-        "id": "C0B7C"
+        "id": "TUBL5"
     },
     {
         "name": "Webcam",
         "typ": "Computerzubehör",
         "Neupreis": "70 EUR",
         "Ort": "Schreibtisch",
-        "id": "OGO1S"
+        "id": "DQM3O"
     },
     {
         "name": "Drucker",
         "typ": "Computerzubehör",
         "Neupreis": "70 EUR",
         "Ort": "Regal",
-        "id": "AEEZJ"
+        "id": "SJDHJ"
     },
     {
         "name": "Laptop",
         "typ": "Computer",
         "Neupreis": "1200 EUR",
         "Ort": "k.A => mobil",
-        "id": "8B0E3"
-    },
-    {
-        "name": "",
-        "typ": "",
-        "neupreis": "",
-        "ort": "",
-        "id": "7JYEW"
-    },
-    {
-        "name": "Kopfhöhrer",
-        "typ": "",
-        "neupreis": "45",
-        "ort": "auf em kopf",
-        "id": "G9AOP"
+        "id": "OEQZ3"
     }
 ]

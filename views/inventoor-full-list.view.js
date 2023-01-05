@@ -12,7 +12,8 @@ export function generateFullItemList(items){
                     <h1 class="left-align" id="main-h1-header">Alle Deine Dinge</h1>
                 </div>
             </div>
-            <div class="row ">       
+            <div class="row "> 
+            <a href="/add">Neues Item hinzufügen</a></br>
             ${createHTMLTable(items)}         
                 
             </div>

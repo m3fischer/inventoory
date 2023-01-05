@@ -17,11 +17,26 @@ server.listen(port,hostname, () => {console.log(`Server is Listening on ${hostna
 
 //(Beispiel-)Daten aus JSON-Datei laden
 let items;
-fs.readFile('./data/items.json', (err, data) => {
+let itemsMap = new Map();
+
+const file_to_load = './data/items.json'
+
+fs.readFile(file_to_load, (err, data) => {    
     items = JSON.parse(data);
+    for(let i = 0; i < items.length; i++){
+        let item_id = createID()
+        if(items[i].id == undefined){
+            items[i].id = item_id
+            itemsMap.set(item_id, items[i])
+        }
+    }
+
+    let newItemRaw = JSON.stringify(items);
+    //let newItemRaw = JSON.stringify(itemsMap);
+    fs.writeFile(file_to_load, newItemRaw, (err) => {console.log("Alles Super beim schreiben der Datei")})
 })
 
-let item_id = createID()
+
 
 
 let counter=0;
@@ -63,7 +78,24 @@ function OnUserRequest(req, res){
             let item = Object.values(items[item_to_show])
             res.end(SingleView(items[item_to_show]))
 
-        }else if (splitedURL.includes("edit") && splitedURL.length == 3) {
+        }else if(splitedURL.includes("add") ){
+            res.setHeader ('Content-Type', 'text/html');
+            res.statusCode = 200;
+            
+            let newItem = {
+                "name":"",
+                "typ":"",
+                "neupreis":"",
+                "ort":""
+            
+            }
+            newItem.id= createID()
+            items.push(newItem)
+            let item_to_show = items.length-1
+            res.end(editView(items[item_to_show]))
+
+        }
+        else if (splitedURL.includes("edit") && splitedURL.length == 3) {
             res.setHeader ('Content-Type', 'text/html');
             res.statusCode = 200;
             const id_position = 2;
@@ -81,8 +113,15 @@ function OnUserRequest(req, res){
                 formdata = Buffer.concat(formdata).toString();
                 let form = parse(formdata);
                 console.log(form)
+                for (let i=0; i<items.length; i++){
+                    if(items[i].id == form.id){
+                        items[i] = form;    
+                    }
+                }                
                 let keys = Object.keys(form)
 
+                let newItemRaw = JSON.stringify(items);
+                fs.writeFile(file_to_load, newItemRaw, (err) => {console.log("Alles Super beim schreiben der Datei")})
                 res.writeHead(302,{location: '/', 'content-type':'text/html'})
                 res.end (httmldoc(items))
     
