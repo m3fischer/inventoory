@@ -82,13 +82,20 @@ function OnUserRequest(req, res){
             res.setHeader ('Content-Type', 'text/html');
             res.statusCode = 200;
             
-            let newItem = {
-                "name":"",
-                "typ":"",
-                "neupreis":"",
-                "ort":""
-            
+            //Als Schablone nehmen wir das 0. Elemnent
+            let newItem = {}
+            let keys = Object.keys(items[0])
+            for (let i = 0; i < keys.length; i++){
+                newItem[keys[i]] = "";
             }
+
+            // let newItem = {
+            //     "name":"",
+            //     "typ":"",
+            //     "neupreis":"",
+            //     "ort":""            
+            // }
+
             newItem.id= createID()
             items.push(newItem)
             let item_to_show = items.length-1
